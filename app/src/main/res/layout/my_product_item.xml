@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.example.buyit.model.ProductModel" />
+
+        <variable
+            name="itemModel"
+            type="com.example.buyit.model.ProductModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white"
+        android:elevation="5dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:scaleType="fitXY"
+                    app:imageResource="@{itemModel.imageId}" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/addToCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/add_to_card_icon"
+                    android:backgroundTint="@color/grey"
+                    android:src="@drawable/ic_baseline_shopping_bag_24"
+
+                    />
+
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{itemModel.productName}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textColor="@color/purple_200"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="italic|bold"
+                android:textSize="28sp"
+                android:text='@{String.valueOf(itemModel.productPrice+ "/-")}' />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
